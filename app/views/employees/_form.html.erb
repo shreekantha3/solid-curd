@@ -1,0 +1,38 @@
+<%= form_with(model: employee, local: true) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+        <% employee.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row g-3">
+    <div class="col">
+    <%= form.label :emp_id %>
+    <%= form.number_field :emp_id %>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col">
+    <%= form.label :emp_name %>
+    <%= form.text_field :emp_name %>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col">
+    <%= form.label :mobile_no %>
+    <%= form.text_field :mobile_no %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
